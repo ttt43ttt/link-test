@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="form-group">
-        <input type="button" class="btn btn-primary" value="Submit" v-on:click="login"/>
+        <input type="button" class="btn btn-primary" value="Submit" v-on:click="login" :disabled="!isValidInputs" />
       </div>
     </div>
   </div>
@@ -29,6 +29,11 @@
         username: '',
         password: '',
         error: 'Your username or password is incorrect'
+      }
+    },
+    computed: {
+      isValidInputs: function () {
+        return this.username && this.password;
       }
     },
     methods: {
